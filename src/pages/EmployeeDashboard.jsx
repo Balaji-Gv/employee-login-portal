@@ -1,4 +1,6 @@
 import React from "react";
+import { logout } from "../features/users/userSlice";
+import { useDispatch } from "react-redux";
 
 const EmployeeDashboard = () => {
   const tasks = [
@@ -6,6 +8,8 @@ const EmployeeDashboard = () => {
     { id: 2, task: "Attend Meeting", dueDate: "2025-03-20" },
     { id: 3, task: "Complete Training", dueDate: "2025-03-30" },
   ];
+
+  const dispatch = useDispatch();
 
   return (
     <div className="p-4">
@@ -28,6 +32,7 @@ const EmployeeDashboard = () => {
           ))}
         </tbody>
       </table>
+      <button className="bg-blue-500 text-white px-4 py-2 mt-4 cursor-pointer rounded-2xl" onClick={() => dispatch(logout())}>Logout</button>
     </div>
   );
 };

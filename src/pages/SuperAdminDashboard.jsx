@@ -1,4 +1,6 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { logout } from "../features/users/userSlice";
 
 const SuperAdminDashboard = () => {
   const reports = [
@@ -6,6 +8,8 @@ const SuperAdminDashboard = () => {
     { id: 2, title: "User Engagement", status: "Pending" },
     { id: 3, title: "System Audit", status: "In Progress" },
   ];
+
+  const dispatch = useDispatch();
 
   return (
     <div className="p-4">
@@ -28,6 +32,7 @@ const SuperAdminDashboard = () => {
           ))}
         </tbody>
       </table>
+      <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-2xl cursor-pointer" onClick={() => dispatch(logout())}>Logout</button>
     </div>
   );
 };
